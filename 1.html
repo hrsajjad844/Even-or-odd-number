@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+    <title>Number Generator</title>
+</head>
+<body>
+<br>
+<br>
+
+<div class="container">
+
+    <div class="row main">
+
+            <div class="col-xl-1 left cm"></div>
+            <div class="col-xl-8cm ">
+            <div class="header">
+                <div class="text_logo">
+                <img class="jslogo" src="Images/js.png" alt=""><span class="title"> Number Generator</span>
+                </div>
+
+            </div>
+
+
+                <div class="row">
+
+                    <div class="input">
+                    <p class="input_title">Input: Start and END</p>
+                        <form>
+                            <input class="input-box" type="number" placeholder="First Number" id="firstNum">
+                            <input class="input-box-last" type="number" placeholder="Last Number" id="lastNum">
+                            <select class="dropdown" name="NumberType" id="numberType">
+                                <option value="all">All numbers</option>
+                                <option value="odd">Only Odd numbers</option>
+                                <option value="even">Only Even numbers</option>
+                            </select>
+<!--                            <input  type="submit" id="btn" class="buttoon" >-->
+                            <button type="button" id="btn" class="buttoon" >Generate</button>
+                        </form>
+
+                    </div>
+                    <div class="output">
+                        <p class="output_title">Output</p>
+                        <textarea class="outbox" name="out" id="output" cols="30" rows="10" ></textarea>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-xl-1 right cm"></div>
+
+
+    </div>
+
+</div>
+
+<script>
+   var button = document.getElementById('btn');
+    button.onclick = function () {
+
+
+        var firstNumber=document.getElementById('firstNum').value;
+        var lastNumber=document.getElementById('lastNum').value;
+        var condition=document.getElementById('numberType').value;
+        var output=document.getElementById('output');
+        output.value=" ";
+
+        for(i=firstNumber;i<=lastNumber;i++){
+            if(condition=="all"){
+                output.value=output.value+i+'  ';
+            }
+            else if(condition=="even"){
+                if(i%2==0){
+                    output.value=output.value+i+'  ';
+                }
+            }
+            else if(condition=="odd"){
+                if(i%2!==0){
+                    output.value=output.value+i+'  ';
+                }
+            }
+
+        }
+
+    }
+</script>
+
+
+<script src="js/bootstrap.min.js"></script>
+</body>
+</html>
